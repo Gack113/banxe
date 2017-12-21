@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
-            <h2 style="text-align:center">Danh sách Nhà Đất</h2>
+            <h2 style="text-align:center">Danh sách Xe Hơi</h2>
             @if(count($errors) > 0)
                 <div class="alert alert-danger">
                 @foreach($errors->all() as $err)

@@ -24,9 +24,10 @@
     <div class="form-group row">
         <label class="col-md-2 col-form-label" for="loai">Loại</label>
         <div class="col-md-10">
-            <select class="form-control" id="loai" name="loai" value="{{$prdct->name == 1 ?"Nhà":"Đất"}}">
-                <option selected>Nhà</option>
-                <option >Đất</option>
+            <select class="form-control" id="loai" name="loai" >
+            @foreach($type as $item)
+                <option value="{{$item->id}}">{{$item->name}}</option>
+             @endforeach
             </select>
         </div>
     </div>

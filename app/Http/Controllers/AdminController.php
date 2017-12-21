@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function  __construct(){
-        $this->middleware('auth');
+        $this->middleware(['admin']);
     }
 
     public function index(){
@@ -41,8 +41,8 @@ class AdminController extends Controller
             'feature_image'=>'required'
         ],
         [
-            'tieude.required'=>'Vui lòng nhập tiêu đề',
-            'loai.required'=>'Chọn 1 trong 2(nhà hoặc đất)',
+            'tieude.required'=>'Vui lòng nhập tên',
+            'loai.required'=>'Chọn 1 trong các loại xe',
             'gia.required'=>'Vui lòng nhập giá',
             'gia.numeric'=>'Giá vui lòng là số',
             'diadiem.required'=>'Vui lòng nhập địa điểm',
@@ -95,7 +95,8 @@ class AdminController extends Controller
 
     public function update_product(Request $req){
         $prdct = Product::where('id',$req->id)->first();
-        return view('admin.update_product',compact('prdct'));
+        $type = ProductType::all();
+        return view('admin.update_product',compact('prdct','type'));
     }
 
     public function update_product_submit(Request $req){
@@ -103,7 +104,7 @@ class AdminController extends Controller
         [   
             'tieude'=>'required',
             'loai'=>'required',
-            'gia'=>'required',
+            'gia'=>'required|numeric',
             'diadiem'=>'required',
             'mota'=>'required',
         ],
@@ -111,6 +112,7 @@ class AdminController extends Controller
             'tieude.required'=>'Vui lòng nhập tiêu đề',
             'loai.required'=>'Chọn 1 trong 2(nhà hoặc đất)',
             'gia.required'=>'Vui lòng nhập giá',
+            'gia.numeric'=>'Giá vui lòng là số',
             'diadiem.required'=>'Vui lòng nhập địa điểm',
             'mota.required'=>'Chưa nhập mô tả',
         ]);

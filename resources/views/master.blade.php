@@ -15,7 +15,7 @@
 </head>
 <body>
     @include('header')
-	<div class="rev-slider">
+	<div class="rev-slider" style="min-height:470px">
         @yield('content')
 	</div> <!-- .container -->
     @include('footer')

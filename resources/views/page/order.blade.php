@@ -74,7 +74,7 @@
                                                 <div class="media-body">
                                                     <p class="font-large">{{$item['item']->name}}</p>
                                                     <span class="color-gray your-order-info">{{$item['item']['promotion_price']==0?$item['item']['unit_price']:$item['item']['promotion_price']}}</span>
-                                                    <span class="color-gray your-order-info">{{$item['qty']}}</span>
+                                                    <span class="color-gray your-order-info">x{{$item['qty']}}</span>
                                                 </div>
                                             </div>
                                         <!-- end one item -->

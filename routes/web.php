@@ -35,13 +35,14 @@ Route::get('thong-tin/lien-he',[
 ]);
 
 
+// End product
+
+// Cart
 Route::get('gio-hang/them-vao-gio-hang/{id}',[
     'as' => 'them-vao-gio-hang',
     'uses' => 'PageController@AddCart'
 ]);
-// End product
 
-// Cart
 Route::get('reduce-cart/{id}',[
     'as' => 'reducecart',
     'uses' => 'PageController@ReduceCart'
@@ -127,7 +128,17 @@ Route::post('user/login',[
     'uses' => 'AdUserController@login_submit'
 ]);
 
-Route::get('logout',[
+Route::get('user/signup',[
+    'as' => 'signup',
+    'uses' => 'AdUserController@signup'
+]);
+
+Route::post('user/signup',[
+    'as' => 'signup',
+    'uses' => 'AdUserController@signup_submit'
+]);
+
+Route::get('user/logout',[
     'as' => 'logout',
     'uses' => 'AdUserController@logout'
 ]);

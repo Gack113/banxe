@@ -12,7 +12,7 @@ class AdUserController extends Controller
 {
 
     public function  __construct(){
-        $this->middleware('auth', ['except' => ['login', 'login_submit']]);
+        $this->middleware('admin', ['except' => ['login', 'login_submit','logout','signup','signup_submit']]);
     }
 
     public function index(){
@@ -39,9 +39,47 @@ class AdUserController extends Controller
         
         $credentials = array('username'=>$req->username,'password'=>$req->password);
         if(Auth::attempt($credentials))
-            return redirect()->route('list-product');
+            return redirect()->route('home');
         else
             return redirect()->back()->with(['flag'=>'danger','message'=>'Tài khoản hoặc mật khẩu không đúng']);
+    }
+
+    public function signup(){
+        return view('page.signup');
+    }
+
+    public function signup_submit(Request $req){
+        $this->validate($req,
+        [
+            'username'=>'required|unique:users',
+            'name'=>'required',
+            'email'=>'required|unique:users',
+            'password'=>'required',
+            'password_confirmation'=>'same:password'
+            // 'g-recaptcha-response' => 'required|captcha'
+        ],
+        [
+            'username.required'=>'Vui lòng nhập tên tài khoản',
+            'username.unique'=>'Tên đăng nhập đã tồn tại',
+            'name.required'=>'Vui lòng nhập tên hiển thị',
+            'email.required'=>'Vui lòng nhập địa chỉ email',
+            'email.unique'=>'Email đã tồn tại',
+            'password.required'=>'Vui lòng nhập mật khẩu',
+            'password_confirmation.confirmed'=>'Nhập lại mật khẩu không trùng'
+            
+        ]);
+        $user = new User();
+        $user->name = $req->name;
+        $user->username = $req->username;
+        $user->email = $req->email;
+        $user->password = Hash::make($req->password);
+        $user->save();
+        return redirect()->back()->with(['message'=>'Đăng ký thành công']);
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('home');
     }
 
     public function add(){
@@ -74,12 +112,6 @@ class AdUserController extends Controller
         $user->save();
 
         return redirect()->back()->with(['message'=>'Thêm thành công']);
-    }
-
-
-    public function logout(){
-        Auth::logout();
-        return redirect()->route('home');
     }
 
     public function update(Request $req){
