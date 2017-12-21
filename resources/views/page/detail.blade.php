@@ -12,7 +12,10 @@
                 <h2>Giá: {{number_format($prdct->unit_price)}}</h2>
             </p>
             <p>
-                <h3>Khu Vực: {{$prdct->location}}</h3>
+                <h3>
+                    Khu Vực: {{$prdct->location}}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{route('them-vao-gio-hang',$prdct->id)}}"><button class="btn btn-info"><i class="fa fa-shopping-cart"></i></button></a>
+                </h3>
             </p>
             <p>
                 <h3>{!!$prdct->description!!}</h3>
@@ -25,7 +28,6 @@
             @endforeach
         </div>
         <div class="col-2">
-        <a href="{{route('them-vao-gio-hang',$prdct->id)}}"><button class="btn btn-info"><i class="fa fa-shoping-cart"></i>Thêm vào giỏ hàng</button></a>
         </div>
     </div>
 </div>
