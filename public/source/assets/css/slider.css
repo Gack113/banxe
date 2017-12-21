@@ -1,0 +1,160 @@
+.content{
+    max-width: 100%;
+}
+
+
+.display-container{
+    position: relative;
+}
+
+.mySlides{
+    display: none;
+}
+
+
+.mySlides img{
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.slide-caption-left{
+    position: absolute; 
+    bottom: 10%;
+    left: 0;
+    padding: 10px;
+    text-align: left;
+    color: rgb(6, 142, 192);
+}
+
+/* .slide-caption-right{
+    position: absolute; 
+    top: 10%; 
+    right: 0;
+    text-align: right;
+    padding: 10px;
+    color: white;
+} */
+
+.slide-caption-center{
+    position: absolute; 
+    top: 10%; 
+    left: 50%;
+    color: rgb(6, 142, 192);
+}
+
+.right, .left, .badge{
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.right, .left{
+    font-size: 30px;
+}
+
+.left{
+    float:left;
+}
+
+.right{
+    float:right;
+}
+
+.mybadge{
+    height: 13px;
+    padding: 0;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    padding: 0 8px;
+}
+
+.border-badge{
+    border: 1px solid #ccc !important;
+    border-radius: 50%;
+}
+
+.text-white{
+    color: #fff;
+}
+
+.section{
+    margin: 16px 0;
+}
+
+.center{
+    text-align: center;
+}
+
+.large{
+    font-size:18px;
+}
+
+.transparent{
+    background-color: transparent;
+}
+
+.display-middle{
+    position: absolute;
+    left: 50%;
+    bottom: 45%;
+    transform: translate(-50%,0%);
+}
+
+.display-bottommiddle{
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%,0%);
+}
+
+.hover-text-khaki{
+    color: #fff;
+}
+
+.hover-white{
+    color: #000;
+    background-color: #fff;
+}
+
+
+.animate-fading{
+    animation:fading 8s infinite
+}
+@keyframes fading{
+    0%{
+        opacity:0
+    }
+    50%{
+        opacity:1
+    }
+    100%{
+        opacity:0
+    }
+}
+
+/* Progress bar */
+.progress-bar{
+    height: 6px;
+    position: absolute; 
+    top: 0;
+    color: white;
+    color:#000;
+    background-color:rgba(0, 0, 0, .15);
+}
+
+.progress-bar-run{
+    height: 6px;
+    background-color:rgb(195, 197, 195);   
+}
+
+@media (max-width: 768px){
+    .slide-caption-left h1{
+        font-size: 18px;
+    }
+    .mybadge{
+       display: none;
+    }
+    .display-middle{
+        bottom:30%;
+    }
+}
