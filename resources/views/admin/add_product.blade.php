@@ -4,7 +4,7 @@
 <div class="container">
 <form action="{{route('add-product')}}" method="post" enctype="multipart/form-data">
     <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
-    <h2 style="text-align:center">Thêm bài viết</h2>
+    <h2 style="text-align:center">Thêm Sản Phẩm</h2>
     @if(count($errors) > 0)
         <div class="alert alert-danger">
         @foreach($errors->all() as $err)

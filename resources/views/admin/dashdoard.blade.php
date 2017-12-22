@@ -40,10 +40,10 @@
                         <a href="javascript:;" style="color:#fff;">&nbsp;&nbsp;MENU</a>
                     </li> 
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#nhadat">Xe
+                        <a href="javascript:;" data-toggle="collapse" data-target="#xe">Sản Phẩm
                         <i class="glyphicon glyphicon-chevron-down"></i>
                         </a>
-                        <ul id="nhadat" class="collapse">
+                        <ul id="xe" class="collapse">
                             <li><a href="{{route('list-product')}}">Danh sách</a></li>
                             <li><a href="{{route('add-product')}}">Thêm</a></li>
                         </ul>

@@ -21,9 +21,13 @@ class PageController extends Controller
 {
     public function index(){
         $slide = Slide::all();
-        $newprdct = Product::where('new',1)->paginate(6);
-        $saleprdct = Product::where('promotion_price','<>',0)->paginate(8);
-        return view('page.home',compact('slide','newprdct','saleprdct'));
+        $newprdct = Product::where('new',1)->orderBy('created_at','desc')->limit(9)->get();
+        $saleprdct = Product::orderBy('sold','desc')->limit(9)->get();
+        $highestProducts = Product::join('product_views','product_views.id_product','=','products.id')
+        ->orderBy('product_views.visited', 'desc')
+        ->limit(9)
+        ->get();
+        return view('page.home',compact('slide','newprdct','highestProducts','saleprdct'));
     }
 
     public function ProductType(Request $req){
@@ -133,6 +137,10 @@ class PageController extends Controller
             $bill_detail->quantity = $value['qty'];
             $bill_detail->unit_price = $value['price']/$value['qty'];
             $bill_detail->save();
+            
+            $product = Product::find($key);
+            $product->sold +=1;
+            $product->save();
         }
         Session::forget('cart');
         return redirect()->back()->with('message','Đặt hàng thành công!');

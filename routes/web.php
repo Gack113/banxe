@@ -207,4 +207,8 @@ Route::get('admin/delete-bill/{id}',[
     'uses'=>'BillController@delete'
 ]);
 
+Route::post('admin/update-bill/{id}',[
+    'as'=>'update-bill',
+    'uses'=>'BillController@update'
+]);
 

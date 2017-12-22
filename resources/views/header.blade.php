@@ -54,11 +54,12 @@
 			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 				@if(Session::has('cart'))
 					@foreach(Session('cart')->items as $item)
-					<a class="dropdown-item" href="#">
+					<a class="dropdown-item" href="{{route('reducecartbyone',$item['item']->id)}}">
 						<img src="source/image/product/{{$item['item']->image}}" alt="" width="50">
 						<span>{{$item['item']->name}}</span>
 						<span>{{substr($item['item']->unit_price,0,5)}}..</span>
 						<span>x{{$item['qty']}}</span>
+						<span style="padding-left:20px;color:red">x</span>
 					</a>
 					@endforeach
 					<a class="dropdown-item" href="#">Tổng: {{number_format(Session('cart')->totalPrice)}}</a>

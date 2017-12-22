@@ -24,7 +24,7 @@
             <br><br>
             <table class="table table-bordered table-hover table-responsive">
                 <tr>
-                    <th>Mã Nhà Đất</th>
+                    <th>Mã Sản Phẩm</th>
                     <th>Số Lượng</th>
                     <th>Giá</th>
                 </tr>

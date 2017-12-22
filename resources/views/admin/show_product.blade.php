@@ -38,6 +38,7 @@
                         <h3>Tổng lượt xem: {{$view->visited}}</h3>
                         <h3>Lần xem cuối cùng: {{$view->last_visited}}</h3>
                     @endif
+                    <h3>Số lượng bán: {{$product->sold}}</h3>
                     <h4>Tạo Ngày: <p>{{$product->created_at}}</p></h1>
                     <h4>Lần cập nhật cuối cùng: <p>{{$product->updated_at}}</p></h2>
                 </header>
